@@ -18,13 +18,15 @@
 <main style="flex: 1 0 auto;"><div class="row">
 	<br><br><br class='hide-on-med-and-up'><br class='hide-on-med-and-up'>
    	<?php
-	   	if(isset ($_GET['pag'])){
+   		session_start();
+	   	if(isset($_SESSION['Susuario']) && isset($_GET['pag'])) {
 	     		if ($_GET['pag']==1) require ("autenticar.php");
-		   	elseif ($_GET['pag']==2) require ("asignaturas.php");
+		   	elseif ($_GET['pag']==2) require ("listar.php");
 		   	elseif ($_GET['pag']==3)require ("eliminar.php");
 		   	elseif ($_GET['pag']==4)require ("modificar.php");
+		   	elseif ($_GET['pag']==0)require ("login.php");
 		  	}
-		   else require ("autenticar.php");
+		   else require ("login.php");
       ?>
 </div></main>
 <footer class="page-footer blue-grey darken-1">
